@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace SisitemaDeCadastro
+﻿namespace SisitemaDeCadastro
 {
     public partial class Manutenção_dos_Cadastros : Form
     {
@@ -75,7 +65,12 @@ namespace SisitemaDeCadastro
 
         private void ExcluiCliente()
         {
-            LimpaCamposDados();
+            DialogResult retorno = MessageBox.Show("Deseja Excluir o cliente??", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (retorno == DialogResult.Yes)
+            {
+                LimpaCamposDados();
+
+            }
 
         }
 
@@ -97,16 +92,24 @@ namespace SisitemaDeCadastro
 
         private void Cancelar()
         {
-            HabilitaBotoesMenu(true);
-            HabilitaCamposM(false);
-            LimpaCamposDados();
+
+            var retorno = MessageBox.Show("Deseja Cancelar?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (retorno == DialogResult.Yes)
+            {
+                HabilitaBotoesMenu(true);
+                HabilitaCamposM(false);
+                LimpaCamposDados();
+            }
+
+
 
 
         }
 
         private void Sair()
         {
-
+            this.Close();
         }
 
         private void LblNome_Click(object sender, EventArgs e)
