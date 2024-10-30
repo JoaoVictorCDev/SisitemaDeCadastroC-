@@ -7,6 +7,29 @@
             InitializeComponent();
         }
 
+        private Int16 condigoCliente;
+
+        private void formataGrid()
+        {
+            //opção para selecionar a linha inteira do grid
+            GrdDadosClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            GrdDadosClientes.Columns[0].HeaderText = "Código";
+            GrdDadosClientes.Columns[1].HeaderText = "Nome";
+            GrdDadosClientes.Columns[2].HeaderText = "Sigla";
+
+            GrdDadosClientes.Columns[0].Width = 0;
+            GrdDadosClientes.Columns[1].Width = 120;
+            GrdDadosClientes.Columns[2].Width = 100;
+        }
+
+
+        private void atualizaDadosGrid()
+        {
+
+        }
+
+
         private void HabilitaBotoesMenu(bool habilitar)
         {
             barBtnNovo.Enabled = habilitar;
@@ -126,6 +149,7 @@
         {
             HabilitaBotoesMenu(true);
             HabilitaCamposM(false);
+            formataGrid();
         }
 
         private void GrdDadosClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)

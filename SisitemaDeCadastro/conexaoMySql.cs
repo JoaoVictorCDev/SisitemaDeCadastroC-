@@ -1,41 +1,42 @@
 ﻿using MySql.Data.MySqlClient;
-using System.Windows.Forms;
 
 namespace SisitemaDeCadastro
 {
     internal class conexaoMySql
     {
-        private MySqlConnection conexao;
+        private MySqlConnection? conexao;
 
 
 
         public void conectarBaseDados()
         {
-            conexao = new MySqlConnection("server=localhost;uid=root;database=cliente;pwd=");
+            conexao = new MySqlConnection("server=localhost;uid=root;database=clientes;pwd=teste123@");
 
             try
             {
                 conexao.Open();
             }
 
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 MessageBox.Show(ex.Message.ToString());
             }
-            
-            
-            
+
+
+
         }
 
         public void desconcetaBaseDados()
         {
-            conexao.Close();
+            conexao?.Close();
         }
 
         public void executaSql(string instrucaoSQL)
         {
             conectarBaseDados();
 
-
+            MySqlCommand comand = new MySqlCommand(instrucaoSQL, conexao);
+            comand.ExecuteNonQuery();
 
             desconcetaBaseDados();
         }
@@ -43,8 +44,12 @@ namespace SisitemaDeCadastro
         public MySqlDataAdapter retonaSQL(string instrucaoSQL)
         {
             conectarBaseDados();
-            desconcetaBaseDados ();
-            return true;
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter(instrucaoSQL, conexao); //
+
+            desconcetaBaseDados();
+
+            return adapter;
         }
     }
 }

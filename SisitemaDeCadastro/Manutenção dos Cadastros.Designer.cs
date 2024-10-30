@@ -37,6 +37,9 @@
             barBtnCancelar = new ToolStripButton();
             barBtnSair = new ToolStripButton();
             GrdDadosClientes = new DataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
             LblNome = new Label();
             TxtNome = new TextBox();
             LblSigla = new Label();
@@ -51,7 +54,7 @@
             BarManutencao.Items.AddRange(new ToolStripItem[] { barBtnNovo, barBtnditar, barBtnExcluir, barBtnSalvar, barBtnCancelar, barBtnSair });
             BarManutencao.Location = new Point(0, 0);
             BarManutencao.Name = "BarManutencao";
-            BarManutencao.Size = new Size(648, 32);
+            BarManutencao.Size = new Size(896, 32);
             BarManutencao.TabIndex = 0;
             BarManutencao.Text = "toolStrip1";
             // 
@@ -118,17 +121,33 @@
             // GrdDadosClientes
             // 
             GrdDadosClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            GrdDadosClientes.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3 });
             GrdDadosClientes.Location = new Point(12, 50);
             GrdDadosClientes.Name = "GrdDadosClientes";
-            GrdDadosClientes.Size = new Size(260, 383);
+            GrdDadosClientes.Size = new Size(343, 383);
             GrdDadosClientes.TabIndex = 1;
             GrdDadosClientes.CellContentClick += GrdDadosClientes_CellContentClick;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "Column1";
+            Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Column2";
+            Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Column3";
+            Column3.Name = "Column3";
             // 
             // LblNome
             // 
             LblNome.AutoSize = true;
             LblNome.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            LblNome.Location = new Point(282, 50);
+            LblNome.Location = new Point(466, 49);
             LblNome.Name = "LblNome";
             LblNome.Size = new Size(50, 20);
             LblNome.TabIndex = 2;
@@ -137,7 +156,7 @@
             // 
             // TxtNome
             // 
-            TxtNome.Location = new Point(282, 73);
+            TxtNome.Location = new Point(466, 72);
             TxtNome.Name = "TxtNome";
             TxtNome.Size = new Size(321, 23);
             TxtNome.TabIndex = 3;
@@ -147,7 +166,7 @@
             // 
             LblSigla.AutoSize = true;
             LblSigla.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            LblSigla.Location = new Point(282, 107);
+            LblSigla.Location = new Point(466, 109);
             LblSigla.Name = "LblSigla";
             LblSigla.Size = new Size(42, 20);
             LblSigla.TabIndex = 4;
@@ -155,7 +174,7 @@
             // 
             // TxtSigla
             // 
-            TxtSigla.Location = new Point(282, 130);
+            TxtSigla.Location = new Point(466, 132);
             TxtSigla.MaxLength = 2;
             TxtSigla.Name = "TxtSigla";
             TxtSigla.Size = new Size(50, 23);
@@ -166,7 +185,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Plum;
-            ClientSize = new Size(648, 453);
+            ClientSize = new Size(896, 453);
             Controls.Add(TxtSigla);
             Controls.Add(LblSigla);
             Controls.Add(TxtNome);
@@ -197,5 +216,8 @@
         private TextBox TxtNome;
         private Label LblSigla;
         private TextBox TxtSigla;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
     }
 }
